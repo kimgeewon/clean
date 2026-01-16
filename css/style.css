@@ -1,0 +1,602 @@
+@font-face {
+  font-family: "Tenada";
+  /* 현재 css 폴더에서 상위 폴더(..)로 이동 후, fonts 폴더 접근 */
+  src: url("../fonts/tenada.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Pretendard";
+  src: url("../fonts/Pretendard-ExtraLight.woff2") format("woff2");
+  font-weight: 200;
+  font-style: normal;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Pretendard, sans-serif;
+}
+
+html {
+  background-color: #fff;
+  font-size: 16px;
+  color: #000;
+}
+
+body {
+  font-family: "Pretendard", serif;
+  /* text-align: center; */
+}
+
+.logo {
+  font-family: "Tenada", Pretendard, sans-serif;
+}
+
+.hero-center h1 {
+  font-family: "Tenada", Pretendard, sans-serif;
+}
+
+.wrap {
+  width: 100%;
+}
+
+/* HERO */
+
+.hero {
+  height: 1080px;
+  /* display:flex; */
+  justify-content: center;
+  align-items: center;
+}
+
+.hero .header .logo {
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px 120px;
+  font-size: 43px;
+}
+
+.header nav a {
+  margin-left: 30px;
+  font-size: 16px;
+  font-weight: 400;
+}
+
+.header nav a.bold {
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.hero-center {
+  width: 100%;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.hero-shape {
+  width: 480px;
+  height: 480px;
+  background: #007bff;
+  border-radius: 50%;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+}
+.hero-logo {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+}
+
+.hero-logo img {
+  width: 650px;
+  height: 640px;
+  object-fit: contain;
+}
+
+.hero-center h1 {
+  font-family: "Tenada", Pretendard, sans-serif;
+  position: relative;
+  z-index: 2;
+  font-size: 205px;
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: 50px;
+  margin: 0;
+  margin-top: 100px;
+  color: #27292b;
+}
+
+.hero-sub .highlight {
+  color: #ffcc24;
+  font-weight: 600;
+  /* letter-spacing:-0.02em; */
+  font-size: 24px;
+  line-height: 40%;
+}
+
+.hero-sub {
+  position: relative;
+  z-index: 2;
+  margin-top: 24px;
+  font-size: 24px;
+  text-align: center;
+  color: #f9fafb;
+  line-height: 40%;
+}
+
+/* BLUE */
+.blue {
+  width: 100%;
+  height: 100vh;
+  background: #007bff;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.blue-inner {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  font-size: 50px;
+  /* line-height: 60%; */
+  letter-spacing: 20px;
+  margin: 0 110px;
+  text-align: right;
+  height: 45%;
+}
+
+.blue-inner p {
+  font-family: Pretendard, sans-serif;
+  font-weight: 200;
+}
+
+.blue-inner p:first-child {
+  align-self: flex-start;
+}
+
+.blue-inner p:last-child {
+  align-self: flex-end;
+  text-align: right;
+}
+
+.blue-highlight {
+  color: #ffcc24;
+  font-weight: 200;
+}
+.second-logo {
+  position: absolute;
+  bottom: 43.39px;
+  left: 50%;
+  z-index: 1;
+}
+
+.second-logo img {
+  width: 83px;
+  height: 84.61px;
+  object-fit: contain;
+}
+
+/* trust */
+
+.trust {
+  width: 100%;
+  height: 100vh;
+  background: #f9fafb;
+  position: relative;
+  overflow: hidden;
+}
+
+.gra {
+  width: 100%;
+  height: 288px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  /* 상단 진한 파랑 -> 하단 투명으로 그라데이션 설정 */
+  background-image: linear-gradient(to bottom, #007bff, rgba(0, 123, 255, 0));
+}
+.trust {
+  width: 100%;
+  height: 100vh;
+  background: #f9fafb;
+  position: relative;
+  overflow: hidden;
+}
+
+.image-wrapper {
+  display: flex;
+  position: relative;
+  z-index: 2;
+}
+
+.trust-1,
+.trust-2 {
+  position: absolute;
+  left: 110px;
+  top: 50%;
+  transform: translateY(-50%);
+  margin-top: 120px;
+}
+.trust-1 {
+  margin-left: -150px;
+  z-index: 1;
+}
+.trust-2 {
+  margin-left: 150px;
+  z-index: 2;
+}
+
+.trust-1 img,
+.trust-2 img {
+  width: auto;
+  height: 600px;
+  object-fit: contain;
+  border: 1px solid #000;
+  border-radius: 50%;
+}
+
+.content-wrapper {
+  position: absolute;
+  right: 110px;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 3;
+  text-align: end;
+  width: 100%;
+  /* max-width: 600px;  */
+}
+
+.main-title {
+  margin-top: 220px;
+  /* text-align: end; */
+  font-size: 64px;
+  font-weight: 900;
+  letter-spacing: 0;
+  /* white-space: nowrap; */
+  /* color: #007bff; */
+  /* 사진처럼 글자에 외곽선 효과를 주려면 아래 속성 추가 (WebKit 기반 브라우저 지원) */
+  -webkit-text-stroke: 1px #007bff;
+  color: transparent;
+}
+
+.brand-text {
+  text-align: end;
+  line-height: 36px;
+  letter-spacing: 0;
+  font-size: 20px;
+  font-weight: 200;
+  color: #27292b;
+  margin-top: 85px;
+}
+.three-logo {
+  position: absolute;
+  bottom: 43.39px;
+  left: 50%;
+  z-index: 1;
+}
+
+.three-logo img {
+  width: 83px;
+  height: 84.61px;
+  object-fit: contain;
+}
+
+.innovation-link {
+  position: absolute;
+  right: 20px;
+  padding-bottom: 20px;
+  display: inline-flex;
+  align-items: center;
+  text-decoration: none;
+  color: #27292b;
+  font-size: 18px;
+  letter-spacing: 0.1em;
+  font-weight: 400;
+  z-index: 15;
+
+  /* border-bottom: 2px solid #27292B;  */
+
+  transition: color 0.3s ease, border-color 0.3s ease;
+  margin-right: 214.41px;
+}
+
+/* 링크에 마우스를 올렸을 때 효과 */
+/* .innovation-link:hover {
+    color: #ff7e5f; 
+    border-color: #feb47b;
+} */
+
+.arrow {
+  margin-left: 15.28px;
+  font-size: 20px;
+  line-height: 1px;
+}
+
+/* PROCESS */
+
+.layout-container {
+  width: 100%;
+  height: 100vh;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.four-middle-logo {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10;
+}
+
+.four-middle-logo img {
+  width: 650px;
+  height: 640px;
+  object-fit: contain;
+}
+
+.four-logo {
+  position: absolute;
+  bottom: 43.39px;
+  left: 50%;
+  z-index: 1;
+}
+
+.four-logo img {
+  width: 83px;
+  height: 84.61px;
+  object-fit: contain;
+}
+
+.content-wrapper-process {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  padding: 0 110px;
+  z-index: 6;
+  background: #f9fafb;
+}
+
+.left-section,
+.right-section {
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+  width: 250px;
+}
+
+.left-section {
+  display: flex;
+  flex-direction: column;
+  gap: 115px; /* 텍스트 사이의 간격을 벌려 선이 보일 공간 확보 */
+  width: 250px;
+  /* width:300px */
+  /* text-align: left; */
+  position: relative; /* 수직선의 기준점 */
+  margin-left: 75px;
+}
+
+.left-section::after {
+  content: "";
+  position: absolute;
+  top: -100px; /* 첫 번째 아이템의 중간부터 시작 */
+  bottom: -100px; /* 마지막 아이템의 중간에서 끝남 */
+  left: 50%;
+  /* right: -90px; */
+  /* 텍스트 오른쪽 끝에서 얼마나 떨어질지 설정 (이미지의 라인 위치) */
+  width: 1px;
+  background-color: #27292b;
+  /*점선 */
+  /* border-right: 1px dashed #27292b; background: none; */
+}
+.left-section .item:nth-child(1) {
+  text-align: left;
+}
+.left-section .item:nth-child(2) {
+  left: 70%;
+}
+.left-section .item:nth-child(3) {
+  text-align: left;
+}
+.left-section .item:nth-child(4) {
+  left: 70%;
+}
+.left-section .item {
+  position: relative;
+  justify-content: flex-end;
+  font-size: 24px;
+  font-weight: 300;
+  color: #27292b;
+  width: 100%;
+}
+
+.center-section {
+  text-align: center;
+  width: 300px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10;
+}
+.quote {
+  font-size: 20px;
+  font-weight: 700;
+  color: #4a4a4a;
+  line-height: 1.4;
+  position: relative;
+}
+.right-section {
+  /* margin-top: 100px; */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 400px; /* 문장 사이의 간격 */
+}
+
+.right-section .item {
+  font-size: 24px;
+  font-weight: 300;
+}
+.right-section .item:nth-child(1) {
+  margin-top: 100px;
+  /* transform: translateY(100px) */
+}
+.right-section .item:nth-child(2) {
+  transform: translateY(-130px); /* 위쪽 방향 이동 */
+}
+
+.content-wrapper-process .leftline {
+  display: flex;
+  flex-direction: column;
+  /* gap: 60px; */
+  /* width: 65%; */
+  gap: 144px;
+  position: absolute;
+  left: 13%;
+}
+
+.content-wrapper-process .leftline span {
+  display: block;
+  height: 1px;
+  background-color: #000;
+  width: 1220px;
+}
+.content-wrapper-process .leftline span:nth-child(1) {
+  margin-left: 35px;
+  
+}
+.content-wrapper-process .leftline span:nth-child(2) {
+  margin-left: 62px;
+   width: 40px;
+}
+.content-wrapper-process .leftline span:nth-child(3) {
+  margin-left: 35px;
+}
+.content-wrapper-process .leftline span:nth-child(4) {
+  margin-left: 62px;
+   width: 40px;
+}
+
+/* SERVICE */
+.service {
+  position: relative;
+  width: 100%;
+  height: 1080px;
+  padding: 120px 0;
+  text-align: center;
+  background: linear-gradient(to bottom, #f9fafb 0%, #e3e8ee 100%);
+}
+
+.service h3 {
+  margin-top: 150px;
+  color: #007bff;
+  font-size: 52px;
+  font-weight: 700;
+}
+
+.service p {
+  margin-top: 110px;
+  color: #27292b;
+  font-size: 38px;
+  line-height: 45px;
+  letter-spacing: 7px;
+  font-weight: 800;
+}
+
+.icons {
+  display: flex;
+  justify-content: center; /* 아이콘 그룹을 중앙에 배치 */
+  gap: 150px; /* 아이콘 항목 사이 간격 */
+  margin-top: 100px; /* 부제목과 아이콘 섹션 사이 간격 */
+}
+
+.icon-item {
+  display: flex;
+  flex-direction: column; /* 아이콘 래퍼와 텍스트를 세로로 정렬 */
+  align-items: center; /* 세로 축에서 중앙 정렬 */
+  gap: 30px; /* 아이콘과 텍스트 사이 간격 */
+}
+
+.icon-item .washing,
+.icon-item .shirt,
+.icon-item .clock,
+.icon-item .phone {
+  width: 112px;
+  height: 112px;
+  /* background: #f0f8ff;  */
+  /* border-radius: 50%;  */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* 이미지 자체의 크기 조절  */
+.icon-item img {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.icon-item span {
+  font-size: 21px;
+  font-weight: 200;
+  color: #27292b;
+}
+.choice-logo {
+  position: absolute;
+  left: 50%;
+  z-index: 1;
+  bottom: 43.39px;
+}
+
+.choice-logo img {
+  width: 83px;
+  height: 84.61px;
+  object-fit: contain;
+}
+
+/* BLACK */
+.black {
+  padding: 120px;
+}
+
+.black-img {
+  height: 240px;
+  background: black;
+  margin-top: 30px;
+}
+
+/* CLEAN */
+.clean {
+  padding: 140px 0;
+  background: #f4f6f8;
+  text-align: center;
+}
+
+/* FOOTER */
+.footer {
+  padding: 40px 0;
+  text-align: center;
+  color: #777;
+}
