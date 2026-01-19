@@ -1,6 +1,5 @@
 @font-face {
   font-family: "Tenada";
-  /* 현재 css 폴더에서 상위 폴더(..)로 이동 후, fonts 폴더 접근 */
   src: url("../fonts/tenada.ttf") format("truetype");
   font-weight: normal;
   font-style: normal;
@@ -18,17 +17,115 @@
   box-sizing: border-box;
   font-family: Pretendard, sans-serif;
 }
-
-html {
+html,
+body {
   background-color: #fff;
   font-size: 16px;
   color: #000;
+  font-family: "Pretendard", serif;
+  overflow-x: hidden;
+  line-height: 1.6;
+  letter-spacing: -0.32px;
+}
+body {
+  text-align: center;
+    font-family: "Pretendard", serif;
 }
 
-body {
-  font-family: "Pretendard", serif;
-  /* text-align: center; */
+/* 0119선영님 */
+ul,
+li {
+  list-style: none;
 }
+a {
+  text-decoration: none;
+  display: block;
+  color: #050404;
+}
+.header {
+  position: relative;
+  width: 1920px;
+  height: 130px;
+  z-index: 1;
+}
+/* logo */
+.logo {
+  position: relative;
+  width: 296px;
+  height: 65px;
+  align-items: center;
+  justify-content: flex-end;
+  color: #050404;
+  font-size: 43px;
+  font-family: "Pretendard";
+}
+.logo a {
+}
+.logo h1 {
+  text-align: center;
+}
+.nav {
+  position: relative;
+  width: 180px;
+  height: 40px;
+  align-items: center;
+  justify-content: flex-end;
+  background-color: #007bff;
+}
+.menu-list {
+  display: flex;
+  position: relative;
+}
+.menu-list > ul {
+  position: relative;
+  display: flex;
+  align-items: flex-end
+  font-size: 16px;
+}
+.menu-list > ul > li {
+  width: 180px;
+  height: 50px;
+  position: relative;
+  line-height: 50px;
+}
+
+.submenu-list {
+  /* display: none; */
+  position: fixed;
+  width: 100%;
+  z-index: 100;
+}
+.submenu-list li {
+  width: 100%;
+  height: 50px;
+  align-items: center;
+  justify-content: center;
+  color: #000;
+  font-size: 16px;
+}
+.menu-list > ul > li:hover > a {
+  background-color: #007bff;
+  color: #fff;
+  font-size: 18px;
+}
+.submenu-list li a {
+  width: 180px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #000;
+  font-size: 16px;
+}
+.submenu-list li a:hover {
+  background-color: #ffcc24;
+  color: #fff;
+  font-size: 18px;
+}
+.img{
+
+}
+/* ----0119 */
 
 .logo {
   font-family: "Tenada", Pretendard, sans-serif;
@@ -49,6 +146,7 @@ body {
   /* display:flex; */
   justify-content: center;
   align-items: center;
+  overflow: hidden;
 }
 
 .hero .header .logo {
@@ -92,6 +190,7 @@ body {
   transform: translate(-50%, -50%);
   z-index: 1;
       will-change: width, height;
+
 }
    .content {
     width: 100%;
@@ -112,6 +211,16 @@ body {
   width: 650px;
   height: 640px;
   object-fit: contain;
+    animation: rotate_logo 10s linear infinite;
+      /* 이름, 시간, 일정하게), 반복 */
+}
+@keyframes rotate_logo {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 .hero-center h1 {
@@ -125,14 +234,24 @@ body {
   margin: 0;
   margin-top: 100px;
   color: #27292b;
+
+   transition: all 0.5s ease-in-out;
+  transform-origin: center; 
+}
+.hero-center h1.scrolled {
+  font-size: 100px;    /* 축소크기 */
+  letter-spacing: 10px; 
+  /* color: #007BFF;       */
+  transform: scale(1.5); 
 }
 
 .hero-sub .highlight {
   color: #ffcc24;
   font-weight: 600;
-  /* letter-spacing:-0.02em; */
   font-size: 24px;
   line-height: 40%;
+  transition: color 0.3s ease; 
+  will-change: font-size, color;
 }
 
 .hero-sub {
@@ -142,11 +261,23 @@ body {
   font-size: 24px;
   text-align: center;
   color: #f9fafb;
-  line-height: 40%;
+    line-height: 1.4;
+  
+  /* 부드럽게 */
+  transition: color 0.3s ease; 
+  will-change: font-size, color;
+}
+
+.hero-sub.scrolled {
+  font-size: 18px;    /* 축소크기 */
+  color: #007BFF;    
+}
+.hero-sub.scrolled .highlight {
+  font-size: 18px;
+  color: #007BFF;   
 }
 
 /* BLUE */
-
 .blue {
   width: 100%;
   height: 100vh;
@@ -210,16 +341,27 @@ body {
 .blue-inner p {
   font-family: Pretendard, sans-serif;
   font-weight: 200;
+  opacity: 0;
+  transition: opacity 1s ease-out, transform 1s ease-out;
+  will-change: opacity, transform; 
 }
 
 .blue-inner p:first-child {
   align-self: flex-start;
+  transform: translateX(-100px); 
 }
 
 .blue-inner p:last-child {
   align-self: flex-end;
   text-align: right;
+   transform: translateX(100px);
 }
+
+.blue-inner p.is-visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
 
 .blue-highlight {
   color: #ffcc24;
@@ -230,6 +372,7 @@ body {
   bottom: 43.39px;
   left: 50%;
   z-index: 1;
+  transform: translateX(-50%);
 }
 
 .second-logo img {
@@ -251,11 +394,12 @@ body {
 .gra {
   width: 100%;
   height: 288px;
+
   position: absolute;
   top: 0;
   left: 0;
-  /* 상단 진한 파랑 -> 하단 투명으로 그라데이션 설정 */
-  background-image: linear-gradient(to bottom, #007bff, rgba(0, 123, 255, 0));
+background-image: linear-gradient(to bottom, #007bff, rgba(0, 123, 255, 0));
+
 }
 .trust {
   width: 100%;
@@ -314,11 +458,16 @@ body {
   font-size: 64px;
   font-weight: 900;
   letter-spacing: 0;
-  /* white-space: nowrap; */
-  /* color: #007bff; */
-  /* 사진처럼 글자에 외곽선 효과를 주려면 아래 속성 추가 (WebKit 기반 브라우저 지원) */
+  /* 외곽선*/
   -webkit-text-stroke: 1px #007bff;
   color: transparent;
+    opacity: 0;
+  transform: translateY(70px); /* 아래->위 */
+  transition: all 1.0s ease-out;
+}
+.main-title.show {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .brand-text {
@@ -329,12 +478,21 @@ body {
   font-weight: 200;
   color: #27292b;
   margin-top: 85px;
+      opacity: 0;
+  transform: translateY(80px); /* 아래->위 */
+  transition: all 1.0s ease-out;
 }
+.brand-text.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
 .three-logo {
   position: absolute;
   bottom: 43.39px;
   left: 50%;
   z-index: 1;
+  transform: translateX(-50%);
 }
 
 .three-logo img {
@@ -355,23 +513,33 @@ body {
   letter-spacing: 0.1em;
   font-weight: 400;
   z-index: 15;
-
-  /* border-bottom: 2px solid #27292B;  */
-
   transition: color 0.3s ease, border-color 0.3s ease;
   margin-right: 214.41px;
 }
 
-/* 링크에 마우스를 올렸을 때 효과 */
-/* .innovation-link:hover {
-    color: #ff7e5f; 
-    border-color: #feb47b;
-} */
+/* 링크 */
+@keyframes nudge {
+  0%, 100% { transform: translateX(0); }
+  50% { transform: translateX(8px); }
+}
+
+.innovation-link:hover {
+    color: #ffcc24; 
+    border-color: #ffcc24;
+}
 
 .arrow {
   margin-left: 15.28px;
   font-size: 20px;
   line-height: 1px;
+    display: inline-block; 
+  transition: transform 0.3s ease;
+    display: inline-block;
+
+}
+.innovation-link:hover .arrow {
+  transform: scaleX(3) translateX(10px); /* 오른쪽으로 3배 길어지고 10px 이동 */  
+  transform-origin: left; /* 왼쪽 기준 */
 }
 
 /* PROCESS */
@@ -404,6 +572,7 @@ body {
   bottom: 43.39px;
   left: 50%;
   z-index: 1;
+  transform: translateX(-50%);
 }
 
 .four-logo img {
@@ -430,6 +599,8 @@ body {
   flex-direction: column;
   gap: 50px;
   width: 250px;
+   /* margin-top: 100px; */
+    transform: translateY(50px); /* 50px만큼 아래로 이동 */
 }
 
 .left-section {
@@ -437,8 +608,6 @@ body {
   flex-direction: column;
   gap: 115px; /* 텍스트 사이의 간격을 벌려 선이 보일 공간 확보 */
   width: 250px;
-  /* width:300px */
-  /* text-align: left; */
   position: relative; /* 수직선의 기준점 */
   margin-left: 75px;
 }
@@ -464,6 +633,7 @@ body {
 }
 .left-section .item:nth-child(3) {
   text-align: left;
+    margin-left: 20px;
 }
 .left-section .item:nth-child(4) {
   left: 70%;
@@ -475,6 +645,7 @@ body {
   font-weight: 300;
   color: #27292b;
   width: 100%;
+  
 }
 
 .center-section {
@@ -493,6 +664,19 @@ body {
   line-height: 1.4;
   position: relative;
 }
+
+/* 클래스가 추가되면 애니메이션 실행 */
+.quote.active {
+  animation: highlight-boost 0.2s ease-in-out forwards;
+}
+
+/* 클래스가 붙었을 때 애니메이션 실행 */
+.quote.flash {
+  animation: flash-white 0.1s ease-in-out;
+}
+
+
+
 .right-section {
   /* margin-top: 100px; */
   display: flex;
@@ -506,11 +690,11 @@ body {
   font-weight: 300;
 }
 .right-section .item:nth-child(1) {
-  margin-top: 100px;
-  /* transform: translateY(100px) */
+  /* margin-top: 100px; */
+  transform: translateY(11px)
 }
 .right-section .item:nth-child(2) {
-  transform: translateY(-130px); /* 위쪽 방향 이동 */
+  transform: translateY(-155px); /* 위쪽 방향 이동 */
 }
 
 .content-wrapper-process .leftline {
@@ -521,13 +705,14 @@ body {
   gap: 144px;
   position: absolute;
   left: 13%;
+   transform: translateY(50px); /* 50px만큼 아래로 이동 */
 }
 
 .content-wrapper-process .leftline #column-line{
   position: absolute;
   top: -100px; 
   /* bottom: -100px; */
-  left: 0;
+  left: 62px;
   /* right: -90px; */
   width: 1px;
   height: 0;
@@ -550,6 +735,10 @@ body {
 .content-wrapper-process .leftline.show span{
   width: 1220px;
 }
+
+/* line끝 둥글게 */
+
+
 
 .content-wrapper-process .leftline span:nth-child(2) {
   margin-left: 35px;
@@ -583,11 +772,16 @@ body {
   background: linear-gradient(to bottom, #f9fafb 0%, #e3e8ee 100%);
 }
 
+
 .service h3 {
   margin-top: 150px;
   color: #007bff;
   font-size: 52px;
   font-weight: 700;
+
+   opacity: 0;
+  transform: translateY(20px);
+  transition: 0.9s ease-out;
 }
 
 .service p {
@@ -597,20 +791,35 @@ body {
   line-height: 45px;
   letter-spacing: 7px;
   font-weight: 800;
+
+    opacity: 0;
+  transform: translateY(20px);
+  transition: 0.9s ease-out 0.1s;
 }
 
 .icons {
   display: flex;
-  justify-content: center; /* 아이콘 그룹을 중앙에 배치 */
+  justify-content: center; /* 아이콘 그룹을 중앙배치 */
   gap: 150px; /* 아이콘 항목 사이 간격 */
   margin-top: 100px; /* 부제목과 아이콘 섹션 사이 간격 */
 }
 
 .icon-item {
   display: flex;
-  flex-direction: column; /* 아이콘 래퍼와 텍스트를 세로로 정렬 */
+  flex-direction: column; /* icon-wrapper와 텍스트를 세로로 정렬 */
   align-items: center; /* 세로 축에서 중앙 정렬 */
   gap: 30px; /* 아이콘과 텍스트 사이 간격 */
+
+    opacity: 0;
+  transform: translateY(30px) scale(0.9); 
+  filter: blur(3px);
+  transition: 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.icon-item.show {
+  transform: translateY(0) scale(1);
+  opacity: 1;
+  filter: blur(0);
 }
 
 .icon-item .washing,
@@ -619,14 +828,12 @@ body {
 .icon-item .phone {
   width: 112px;
   height: 112px;
-  /* background: #f0f8ff;  */
-  /* border-radius: 50%;  */
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-/* 이미지 자체의 크기 조절  */
+/* 이미지 자체크기 조절  */
 .icon-item img {
   max-width: 100%;
   max-height: 100%;
@@ -642,6 +849,7 @@ body {
   left: 50%;
   z-index: 1;
   bottom: 43.39px;
+  transform: translateX(-50%);
 }
 
 .choice-logo img {
