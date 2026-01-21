@@ -1,11 +1,12 @@
 
 const leftlines = document.querySelectorAll(".leftline span")
+console.log(leftlines)
 
-const observer = new IntersectionObserver((entries) => {
+const lineObserver = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
       entry.target.parentNode.classList.add("show");
-      // observer.unobserve(entry.target);
+      // lineObserver.unobserve(entry.target);
     }else{
       entry.target.parentNode.classList.remove("show");
     }
@@ -27,5 +28,5 @@ leftlines.forEach((line, index) => {
   // 👇 두 번째 인수 index 활용
   // line.style.transitionDelay = index * 0.2 + "s";
 
-  observer.observe(line);
+  lineObserver.observe(line);
 });

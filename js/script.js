@@ -183,30 +183,105 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 // trust
+const trustSection = document.querySelector('.trust');
+const trust1 = document.querySelector('.trust-1 img');
+const trust2 = document.querySelector('.trust-2 img');
+
+let lastScroll = window.scrollY;
+
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+
+    const currentScroll = window.scrollY;
+    const scrollingDown = currentScroll > lastScroll;
+    lastScroll = currentScroll;
+
+    if (entry.isIntersecting && scrollingDown) {
+
+      // trust-1 먼저
+      trust1.classList.add('active');
+
+      // trust-2 살짝 겹쳐서 등장
+      setTimeout(() => {
+        trust2.classList.add('active');
+      }, 350);
+
+    } 
+    else if (!entry.isIntersecting && !scrollingDown) {
+
+      // 역스크롤 → 반대로 제거
+      trust2.classList.remove('active');
+
+      setTimeout(() => {
+        trust1.classList.remove('active');
+      }, 300);
+    }
+
+  });
+}, {
+  threshold: 0.4
+});
+
+observer.observe(trustSection);
+
+
+
 
 // service
+// const section = document.querySelector(".service");
+// const title = section.querySelector("h3");
+// const subtitle = section.querySelector("p");
+// const icons = section.querySelectorAll(".icon-item");
+
+// window.addEventListener("scroll", () => {
+//   const rect = section.getBoundingClientRect();
+//   const trigger = window.innerHeight * 0.7;
+
+//   if (rect.top < trigger) {
+//     // TITLE
+//     title.style.opacity = 1;
+//     title.style.transform = "translateY(0)";
+
+//     // SUBTITLE
+//     setTimeout(() => {
+//       subtitle.style.opacity = 1;
+//       subtitle.style.transform = "translateY(0)";
+//     }, 300);
+
+//     // ICONS
+//   icons.forEach((el, i) => {
+//       setTimeout(() => {
+//         el.classList.add("show");
+//       }, 600 + i * 150);
+//     });
+//   }
+// });
+
+
 const section = document.querySelector(".service");
 const title = section.querySelector("h3");
 const subtitle = section.querySelector("p");
 const icons = section.querySelectorAll(".icon-item");
 
+let triggered = false;
+
 window.addEventListener("scroll", () => {
   const rect = section.getBoundingClientRect();
-  const trigger = window.innerHeight * 0.7;
+  const sectionTrigger = rect.height * 0.4;
+  const visible = window.innerHeight - rect.top;
 
-  if (rect.top < trigger) {
-    // TITLE
+  if (!triggered && visible >= sectionTrigger) {
+    triggered = true;
+
     title.style.opacity = 1;
     title.style.transform = "translateY(0)";
 
-    // SUBTITLE
     setTimeout(() => {
       subtitle.style.opacity = 1;
       subtitle.style.transform = "translateY(0)";
     }, 300);
 
-    // ICONS
-  icons.forEach((el, i) => {
+    icons.forEach((el, i) => {
       setTimeout(() => {
         el.classList.add("show");
       }, 600 + i * 150);
@@ -216,6 +291,79 @@ window.addEventListener("scroll", () => {
 
 
 
+// 스크롤
+// document.addEventListener("DOMContentLoaded", () => {
+
+//   const cta = document.querySelector(".scroll-cta");
+//   const footer = document.querySelector("footer");
+
+//   if (!cta || !footer) return;
+
+//   const observer = new IntersectionObserver(
+//     ([entry]) => {
+//       if (entry.isIntersecting) {
+//         cta.style.opacity = "0";
+//         cta.style.transform = "translateX(-50%) translateY(10px)";
+//       } else {
+//         cta.style.opacity = "1";
+//         cta.style.transform = "translateX(-50%) translateY(0)";
+//       }
+//     },
+//     {
+//       threshold: 0.1
+//     }
+//   );
+
+//   observer.observe(footer);
+
+// });
 
 
-// 
+
+// 선영님 js
+document.addEventListener("scroll", () => {
+  const reveals = document.querySelectorAll(".reveal");
+
+  reveals.forEach((el) => {
+    const windowHeight = window.innerHeight;
+    const elementTop = el.getBoundingClientRect().top;
+    const revealPoint = 100;
+
+    if (elementTop < windowHeight - revealPoint) {
+      el.classList.add("active");
+    }
+  });
+});
+
+const reveals = document.querySelectorAll('.reveal');
+
+function checkReveal() {
+  reveals.forEach(reveal => {
+    const windowHeight = window.innerHeight;
+    const revealTop = reveal.getBoundingClientRect().top;
+    const revealPoint = 150;
+
+    if (revealTop < windowHeight - revealPoint) {
+      reveal.classList.add('active');
+    }
+  });
+}
+
+window.addEventListener('scroll', checkReveal);
+checkReveal();
+
+// fade-section 애니메이션 추가
+const fadeSection = document.querySelector('.fade-section');
+
+function checkFadeSection() {
+  const windowHeight = window.innerHeight;
+  const fadeSectionTop = fadeSection.getBoundingClientRect().top;
+  const revealPoint = 150;
+
+  if (fadeSectionTop < windowHeight - revealPoint) {
+    fadeSection.classList.add('active');
+  }
+}
+
+window.addEventListener('scroll', checkFadeSection);
+checkFadeSection();
