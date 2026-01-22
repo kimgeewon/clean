@@ -1214,10 +1214,15 @@ li {
  width: 100%;
   min-height: 420px; /* ⬅️ 높이 축소 */
   text-align: left;
-  background:#fff;
+ background: linear-gradient(
+    180deg,
+    #eaf4ff 0%,
+    #7bbcff 50%,
+        #2f80ed 100%
+  ); /* ⬅️ 블루 계열 */
   display: flex;
   align-items: center;
-  margin-top: 50px;
+  /* margin-top: 50px; */
 }
 /* sns */
 .footer-inner {
