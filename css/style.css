@@ -1214,12 +1214,7 @@ li {
  width: 100%;
   min-height: 420px; /* ⬅️ 높이 축소 */
   text-align: left;
-  background: linear-gradient(
-    180deg,
-    #eaf4ff 0%,
-    #7bbcff 50%,
-    #2f80ed 100%
-  ); /* ⬅️ 블루 계열 */
+  background:#f5f5f5;
   display: flex;
   align-items: center;
 }
@@ -1253,6 +1248,7 @@ li {
 .footer-logo img {
   width: 45px;
   height: 45px;
+  margin-top: 11px;
 }
 
 .footer-text p {
