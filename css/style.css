@@ -1113,8 +1113,8 @@ li {
   justify-content: center;
   align-items: center;
   text-align: center;
-  width: 1000px; 
-  height: 1000px;
+  width: 1300px; 
+  height: 1300px;
   border-radius: 50%;
     background: transparent; 
 }
@@ -1211,10 +1211,15 @@ li {
 }
 
 .footer {
-  width: 100%;
-  /* min-height: 694px; */
+ width: 100%;
+  min-height: 420px; /* ⬅️ 높이 축소 */
   text-align: left;
-  background: linear-gradient(180deg, #f5f9fd 0%, #ffff 50%, #4da3ff 100%);
+  background: linear-gradient(
+    180deg,
+    #eaf4ff 0%,
+    #7bbcff 50%,
+    #2f80ed 100%
+  ); /* ⬅️ 블루 계열 */
   display: flex;
   align-items: center;
 }
@@ -1231,10 +1236,10 @@ li {
 
 /* 왼쪽 */
 .footer-left {
-  display: block;
+  display: flex;
   flex-direction: column;
-  gap: 45px;
-  margin-top: 356px;
+  gap: 28px; /* ⬅️ 간격 축소 */
+  margin-top: 0; /* ⬅️ 기존 356px 제거 */
 }
 
 .footer-logo {
@@ -1258,10 +1263,11 @@ li {
 }
 .footer-inner {
   width: 100%;
-  padding: 110px 110px 70px; /* ⬅️ 아래만 70px */
+  margin: 0 auto;
+  padding: 70px 80px 50px; /* ⬅️ 전체 패딩 축소 */
   display: flex;
   justify-content: space-between;
-  align-items: flex-end; /* 이미 바닥 정렬 */
+  align-items: flex-end;
 }
 /* 오른쪽 SNS */
 .footer-right {
