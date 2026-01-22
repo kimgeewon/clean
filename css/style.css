@@ -1238,8 +1238,8 @@ li {
 .footer-left {
   display: flex;
   flex-direction: column;
-  gap: 28px; /* ⬅️ 간격 축소 */
-  margin-top: 0; /* ⬅️ 기존 356px 제거 */
+  gap: 28px; 
+  margin-top: 0; 
 }
 
 .footer-logo {
