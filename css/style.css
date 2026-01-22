@@ -1252,9 +1252,13 @@ li {
 }
 
 .footer-logo img {
+  /* width: 45px;
+  height: 45px;
+  margin-top: 0; */
   width: 45px;
   height: 45px;
-  margin-top: 11px;
+  position: relative;
+  top: 11px;
 }
 
 .footer-text p {
@@ -1262,6 +1266,8 @@ li {
   font-size: 20px;
   line-height: 1.6;
   color: #000;
+  /* margin-top: 20px; */
+  /* margin-bottom: 0; */
 }
 .footer-inner {
   width: 100%;
