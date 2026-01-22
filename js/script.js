@@ -367,3 +367,27 @@ function checkFadeSection() {
 
 window.addEventListener('scroll', checkFadeSection);
 checkFadeSection();
+
+
+// content
+document.addEventListener("DOMContentLoaded", function() {
+  const content = document.querySelector('.content');
+
+  const observerOptions = {
+    threshold: 0.4 // 섹션이 40% 이상 보일 때 애니메이션 시작
+  };
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        // 화면에 들어오면 active 클래스 추가
+        entry.target.classList.add('active');
+      } else {
+        // 다시 스크롤해서 올라갔을 때 효과를 리셋하고 싶다면 아래 주석 제거
+        // entry.target.classList.remove('active');
+      }
+    });
+  }, observerOptions);
+
+  observer.observe(content);
+});

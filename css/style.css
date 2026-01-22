@@ -997,6 +997,8 @@ li {
   object-fit: contain;
 } */
 
+
+
 /* 하단1 시작------------------------- */
 .three {
   display: flex;
@@ -1012,6 +1014,7 @@ li {
   padding: 150px 150px;
   box-sizing: border-box;
 }
+
 
 /* 이미지 */
 .feature-item img {
@@ -1073,132 +1076,135 @@ li {
   transform: translateY(0);
 }
 
-/* 하단1 끝------------------------- */
-/* 하단2 시작------------------------- */
 .fade-section {
-  position: relative;
+ position: relative;
   width: 100%;
-  height: 100%; /* 섹션 높이를 화면 전체로 설정 */
-  overflow: hidden;
-  margin-top: 110px;
-}
-.fade-section .content h1 {
-  font-family: "Pretendard";
-  font-size: 60px;
-  font-weight: 800;
-}
-.fade-section .content p {
-  font-family: "Pretendard";
-  font-size: 30px;
-  font-weight: 300;
-}
-
-.fade-section img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-}
-
-.fade-section .content {
-  position: absolute;
-  top: -7%;
-  left: 0%;
+  height: 100vh;
   display: flex;
-  flex-direction: column; /* 글씨를 위아래로 나열 */
-  justify-content: center; /* 세로 중앙 */
-  align-items: center; /* 가로 중앙 */
-  width: 100%;
-  height: 100%;
-  color: #ffffff; /* 이미지 위에서 잘 보이도록 흰색 설정 */
-  text-align: center;
-  z-index: 10; /* 이미지보다 위로 오게 설정 */
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
 }
-
-/* fade-section 초기 상태 */
-.fade-section img {
+.fade-section > div:first-child img {
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
-  display: block;
-  opacity: 0;
-  transition: opacity 3s ease;
+  z-index: 1;
 }
 
-.fade-section .content {
-  position: absolute;
-  top: -7%;
-  left: 0%;
+.fade-section img {
+  /* position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 1; */
+}
+
+.content {
+  position: relative;
+  z-index: 2;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  text-align: center;
+  width: 1000px; 
+  height: 1000px;
+  border-radius: 50%;
+    background: transparent; 
+}
+.content img {
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
-  color: #000000;
-  text-align: center;
-  z-index: 10;
+  object-fit: contain;
+  z-index: -1; 
   opacity: 0;
-  transition: opacity 1s ease 1s; /* 1초 지연 후 나타남 */
+  transform: scale(0.8);
+  transition: all 1.2s ease-out;
 }
 
-.fade-section .rotating-circle {
+.content h1 {
   opacity: 0;
-  transition: opacity 1s ease 0.5s; /* 0.5초 지연 후 나타남 */
+  transform: translateY(20px);
+  transition: all 0.8s ease-out;
+  margin: 10px 0;
+  color: #27292B;
+  font-weight: 800;
+  font-size: 50px;
 }
 
-/* 활성화 상태 */
-.fade-section.active img {
-  opacity: 1;
+.content p {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.8s ease-out;
+  margin: 10px 0;
+  color: #27292B;
+  font-size: 20px;
 }
-
-.fade-section.active .content {
+.content.active img {
   opacity: 1;
+  transform: scale(1);
 }
-
-.fade-section.active .rotating-circle {
+.content.active h1 {
   opacity: 1;
+  transform: translateY(0);
+  transition-delay: 0.5s;
 }
-/* 원형 링 */
+.content.active p {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 0.8s;
+}
+/* 화살표 */
 .rotating-circle {
   position: absolute;
-  top: 23%;
-  left: 34%;
-  width: 847px;
-  height: 847px;
-  margin-left: -130px; /* 중앙 정렬 */
-  margin-top: -130px;
-  border: 3px solid rgba(255, 255, 255, 0.651);
-  border-radius: 50%;
-  z-index: 20;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 1000px;  
+  height: 1000px;
+  pointer-events: none;
+  z-index: 3;
 }
 
-/* 화살표 */
 .rotating-circle .arrow {
   position: absolute;
-  width: 50px; /* 화살표크기조절 */
-  height: 40px;
-  background-color: white;
-  clip-path: polygon(0% 50%, 100% 0%, 100% 100%); /* 삼각형 화살표 */
-  top: 100%; /* 원 테두리 위쪽 시작 위치 */
-  left: 47.45%; /* 원 테두리 바로 오른쪽에 배치 */
-  transform: translateX(-50%); /* 화살표를 중앙 정렬 */
-  transform-origin: 50% calc(-405px + 2px); /* 원의 중심점 (반지름 425px + 화살표 위치 조정) */
-  animation: rotate-arrow 5s linear infinite;
+  width: 25px;
+  height: 25px;
+  background-color: #FFCC24;
+  /* 화살표가 원의 중심을 향하도록 설정 */
+  clip-path: polygon(50% 100%, 0% 0%, 100% 0%); 
+  
+  /* 1. 안쪽으로 더 이동 (예: 테두리에서 100px 지점) */
+  top: 100px;   
+  left: 50%;
+  
+  /* 2. 회전 중심축 재설정 */
+  /* 원의 반지름(500px) - 위에서 내려온 거리(100px) = 400px */
+  transform-origin: 50% 400px; 
+  
+  animation: rotate-arrow 10s linear infinite;
 }
 
-/* 화살표 회전 애니메이션 */
 @keyframes rotate-arrow {
   from {
-    transform: translateY(-50%) rotate(0deg);
+    transform: translateX(-50%) rotate(0deg);
   }
   to {
-    transform: translateY(-50%) rotate(360deg);
+    transform: translateX(-50%) rotate(360deg);
   }
 }
 
-/* 하단2 끝------------------------- */
-/* 푸터 시작---------------------------*/
+
+
 .footer-text strong {
   font-family: "Pretendard";
   font-weight: 700;
@@ -1278,6 +1284,3 @@ li {
   width: 76px;
   height: 76px;
 }
-
-
-/* 푸터 끝------------------------------------- */
